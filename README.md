@@ -40,3 +40,9 @@ BrandAuthScreen(
 
 Omit controlled state and host widget slots to use the package's built-in OTP
 transition and generic Google sign-in presentation.
+
+## Dependencies
+
+This package relies on the following great packages:
+- [flutter](https://pub.dev/packages/flutter)
+- [intl_phone_field](https://pub.dev/packages/intl_phone_field)
