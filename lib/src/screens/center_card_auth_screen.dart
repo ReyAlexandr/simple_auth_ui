@@ -14,6 +14,7 @@ class CenterCardAuthScreen extends StatefulWidget {
     this.appBar,
     this.apiKey,
     this.showGoogleSignIn = true,
+    this.fullWidthButton = false,
     this.onGoogleSignIn,
     this.onCheckUsername,
     this.loginSocialAuthBuilder,
@@ -29,6 +30,7 @@ class CenterCardAuthScreen extends StatefulWidget {
   final String? apiKey;
 
   final bool showGoogleSignIn;
+  final bool fullWidthButton;
   final Future<void> Function()? onGoogleSignIn;
   final Future<bool> Function(String username)? onCheckUsername;
   final LoginSocialAuthBuilder? loginSocialAuthBuilder;
@@ -58,6 +60,7 @@ class _CenterCardAuthScreenState extends State<CenterCardAuthScreen> {
                 topWidget: widget.topWidget,
                 introText: widget.registerSubtitle,
                 showGoogleSignIn: widget.showGoogleSignIn,
+                fullWidthButton: widget.fullWidthButton,
                 onRegister: widget.onRegister,
                 onGoogleSignIn: widget.onGoogleSignIn,
                 onCheckUsername: widget.onCheckUsername,
@@ -67,6 +70,7 @@ class _CenterCardAuthScreenState extends State<CenterCardAuthScreen> {
                 topWidget: widget.topWidget,
                 introText: widget.loginSubtitle,
                 showGoogleSignIn: widget.showGoogleSignIn,
+                fullWidthButton: widget.fullWidthButton,
                 onLogin: widget.onLogin,
                 onGoogleSignIn: widget.onGoogleSignIn,
                 socialAuthBuilder: widget.loginSocialAuthBuilder,
