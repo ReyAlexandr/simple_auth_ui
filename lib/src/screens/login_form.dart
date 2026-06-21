@@ -20,6 +20,7 @@ class LoginForm extends StatefulWidget {
     this.onGoogleSignIn,
     this.socialAuthBuilder,
     this.showRegisterPrompt = true,
+    this.fullWidthButton = true,
   });
 
   final Future<void> Function(String username, String password) onLogin;
@@ -30,6 +31,7 @@ class LoginForm extends StatefulWidget {
   final Future<void> Function()? onGoogleSignIn;
   final LoginSocialAuthBuilder? socialAuthBuilder;
   final bool showRegisterPrompt;
+  final bool fullWidthButton;
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -101,11 +103,20 @@ class _LoginFormState extends State<LoginForm> {
           ),
           PasswordField(controller: _passwordController),
           const SizedBox(height: 16),
-          SubmitButton(
-            onPressed: disabled ? null : _submit,
-            text: 'Login',
-            isLoading: _isLoading,
-          ),
+          widget.fullWidthButton
+              ? SizedBox(
+                  width: double.infinity,
+                  child: SubmitButton(
+                    onPressed: disabled ? null : _submit,
+                    text: 'Login',
+                    isLoading: _isLoading,
+                  ),
+                )
+              : SubmitButton(
+                  onPressed: disabled ? null : _submit,
+                  text: 'Login',
+                  isLoading: _isLoading,
+                ),
           if (widget.socialAuthBuilder != null)
             widget.socialAuthBuilder!(context, disabled)
           else if (widget.showGoogleSignIn)

@@ -14,6 +14,7 @@ class CenterCardLoginScreen extends StatelessWidget {
     this.socialAuthBuilder,
     this.showRegisterPrompt = false,
     this.onRegisterPrompt,
+    this.fullWidthButton = false,
   });
 
   final Future<void> Function(String username, String password) onLogin;
@@ -25,6 +26,7 @@ class CenterCardLoginScreen extends StatelessWidget {
   final LoginSocialAuthBuilder? socialAuthBuilder;
   final bool showRegisterPrompt;
   final VoidCallback? onRegisterPrompt;
+  final bool fullWidthButton;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class CenterCardLoginScreen extends StatelessWidget {
           onGoogleSignIn: onGoogleSignIn,
           socialAuthBuilder: socialAuthBuilder,
           showRegisterPrompt: showRegisterPrompt,
+          fullWidthButton: fullWidthButton,
         ),
       ),
     );

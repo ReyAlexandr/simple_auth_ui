@@ -21,6 +21,7 @@ class RegisterForm extends StatefulWidget {
     this.showGoogleSignIn = true,
     this.onGoogleSignIn,
     this.onCheckUsername,
+    this.fullWidthButton = true,
   });
 
   final Future<void> Function(String username, String password) onRegister;
@@ -30,6 +31,7 @@ class RegisterForm extends StatefulWidget {
   final bool showGoogleSignIn;
   final Future<void> Function()? onGoogleSignIn;
   final Future<bool> Function(String username)? onCheckUsername;
+  final bool fullWidthButton;
 
   @override
   State<RegisterForm> createState() => _RegisterFormState();
@@ -188,14 +190,20 @@ class _RegisterFormState extends State<RegisterForm> {
             originalPasswordController: _passwordController,
           ),
           const SizedBox(height: 24),
-          SizedBox(
-            width: double.infinity,
-            child: SubmitButton(
-              onPressed: disabled ? null : _submit,
-              text: 'Register',
-              isLoading: _isLoading,
-            ),
-          ),
+          widget.fullWidthButton
+              ? SizedBox(
+                  width: double.infinity,
+                  child: SubmitButton(
+                    onPressed: disabled ? null : _submit,
+                    text: 'Register',
+                    isLoading: _isLoading,
+                  ),
+                )
+              : SubmitButton(
+                  onPressed: disabled ? null : _submit,
+                  text: 'Register',
+                  isLoading: _isLoading,
+                ),
           if (widget.showGoogleSignIn) ...[
             const SizedBox(height: 16),
             const SocialDivider(),
