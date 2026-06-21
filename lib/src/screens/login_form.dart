@@ -88,7 +88,9 @@ class _LoginFormState extends State<LoginForm> {
           Text(
             widget.introText,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
           ),
           const SizedBox(height: 32),
           UsernameField(
