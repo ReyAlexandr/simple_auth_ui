@@ -1,6 +1,6 @@
 name: simple_auth_ui
 description: Reusable, host-driven Flutter authentication screens and fields.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/ReyAlexandr/simple_auth_ui
 repository: https://github.com/ReyAlexandr/simple_auth_ui
 issue_tracker: https://github.com/ReyAlexandr/simple_auth_ui/issues
